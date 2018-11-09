@@ -1,5 +1,11 @@
-def my_select(collection)
- collection.select { |block| block.collection }
+def my_select(array)
+  i = 0
+  select = []
+  while i < array.length
+    if yield(array[i])
+      select << array[i]
+    end
+    i+=1
+  end
+  select
 end
-
-#[1,2,3,4,5].select { |num|  num.even?  }   #=> [2, 4]
